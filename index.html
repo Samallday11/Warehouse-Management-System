@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Database</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Product Database</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <select id="searchType">
+                    <option value="product_name">Product Name</option>
+                    <option value="upc">UPC</option>
+                    <option value="product_type">Product Type</option>
+                    <option value="box_dimensions">Box Dimensions</option>
+                    <option value="shipping_dimensions">Shipping Dimensions</option>
+                    <option value="cost_unit">Cost/Unit</option>
+                    <option value="cost_box">Cost/Box</option>
+                    <option value="sell_rate">Sell Rate</option>
+                </select>
+                <select id="dimensionType" style="display: none;">
+                    <option value="height">Height</option>
+                    <option value="width">Width</option>
+                    <option value="length">Length</option>
+                </select>
+                <select id="compareType" style="display: none;">
+                    <option value="greater_equal">Greater Than or Equal to (≥)</option>
+                    <option value="less_equal">Less Than or Equal to (≤)</option>
+                    <option value="equals">Equals (=)</option>
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-column="product_name">Product Name</th>
+                            <th data-column="upc">UPC</th>
+                            <th data-column="weight_per_unit_(lbs)" class="numeric">Weight/Unit (lbs)</th>
+                            <th data-column="weight_per_box_(lbs)" class="numeric">Weight/Box (lbs)</th>
+                            <th data-column="standard_box_size_per_unit" class="numeric">Box Size</th>
+                            <th data-column="box_dimensions_(inches)">Box Dimensions</th>
+                            <th data-column="standard_shipping_size">Shipping Size</th>
+                            <th data-column="shipping_box_dimensions_(inches)">Shipping Dimensions</th>
+                            <th data-column="product_type">Product Type</th>
+                            <th data-column="cost_per_unit_(usd)" class="numeric">Cost/Unit ($)</th>
+                            <th data-column="cost_per_shipping_box_(usd)" class="numeric">Cost/Box ($)</th>
+                            <th data-column="sell_rate" class="numeric">Sell Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataBody">
+                        <!-- Data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
